@@ -32,7 +32,7 @@ module Webpagetest
       yield params
       raise_error('No params were passed to run_test method') if params.empty?
 
-      response = connection.post do |req|
+      response = connection.get do |req|
         req.url "#{TEST_BASE}"
         req.params['k'] = key
         req.params['f'] = @params.f
